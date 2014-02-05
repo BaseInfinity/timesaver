@@ -1,0 +1,36 @@
+<script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+<!-- Personal theme -->
+<link rel="stylesheet" href="../style.css" type="text/css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="../index.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<% var lunchTaken = user.workInfo.lunchTaken.value; %>
+<% if (user) { %>
+  <div class="container theme-showcase" role="main">
+    <div class="jumbotron">
+      <h1 class="text-center"><%= user.displayName %></h1>
+      <p>
+        <a id="lunchHoursButton" data-loading-text="Saving..." class="btn btn-lg btn-block <%= lunchTaken ? 'btn-success' : 'btn-danger' %>" data-lunchtaken='<%= lunchTaken %>' role="button"><%= lunchTaken ? 'Lunch Taken' : 'Lunch Not Taken' %> </a>
+      </p>
+      <div class="row">
+        <div class="form-group has-feedback">
+          <div id="regularColumn" class="col-sm-4">
+            <input id="regularHoursInput" data-trigger="manual" data-title="Saved" type="text" hoursType="regular" class="form-control" placeholder="Regular Hours">
+          </div>
+          <div id="overtimeColumn" class="col-sm-4">
+            <input id="overtimeHoursInput" data-trigger="manual" data-title="Saved" type="text" hoursType="overtime" class="form-control" placeholder="Overtime Hours">
+          </div>
+          <div id="makeupColumn" class="col-sm-4">
+            <input id="makeupHoursInput" data-trigger="manual" data-title="Saved" type="text" hoursType="makeup" class="form-control" placeholder="Makeup Hours">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% } %>
